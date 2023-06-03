@@ -1,0 +1,83 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    {{#with program.excursion}}
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+    <div>
+        {{#with location}}
+        <h2>{{city}}, {{country}}</h2>
+        {{/with}}
+    </div>
+    <div><em>{{date}}</em></div>
+    <br>
+    <hr>
+    <section>
+        <div>
+            <h3>Cultural Tour Program:</h3>
+        </div>
+        <div>
+            {{#each program}}
+            <b>{{name}} ({{type}}) {{duration}} days:</b>
+            <section>
+                {{#with details.museum}}
+                <strong>{{name}}</strong>
+                {{#with location}}
+                <address>{{address}}, {{city}}, {{country}}</address>
+                {{/with}}
+                <br>
+                <div>
+                    <b>Exhibits:</b>
+                </div>
+                <ol>
+                    {{#each exhibits}}
+                    <li>
+                        <p>
+                            {{name}} {{#if artist}}, {{artist}} {{/if}}
+                        <p>{{description}}</p>
+                        {{#if audio_guide}} Audio guide is available {{/if}}
+                        </p>
+                    </li>
+                    {{/each}}
+                </ol>
+                {{/with}}
+                <div>
+                    {{#with details.venue}}
+                    <strong>{{name}}</strong>
+                    {{#with location}}
+                    <address>{{address}}, {{city}}, {{country}}</address>
+                    {{/with}}
+                    {{/with}}
+                </div>
+                <br>
+                <div>
+                    {{#with details}}
+                    {{#if performers}}<b>Performers:</b> {{else}} {{/if}}
+                    {{#each performers}}
+                    <ul>
+                        <li>{{name}} ({{type}})</li>
+                    </ul>
+                    {{/each}}
+                    {{/with}}
+                </div>
+                <div>
+                    <b>Guide:</b>
+                    {{#with details.guide}}
+                    <em>{{name}} (Language {{language}}, Rating {{rating}})</em>
+                    {{/with}}
+                </div>
+            </section>
+            {{/each}}
+        </div>
+    </section>
+    {{/with}}
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
