@@ -1,0 +1,69 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <h1><span class="badge bg-secondary">JavaScript</span></h1>
+    <h2><span class="badge bg-secondary">(Founded in {{history.year}} by {{history.founder}})</span></h2>
+</div>
+<hr>
+<main>
+    <article>
+        <h3><span class="badge bg-secondary">Description:</span></h3>
+        <h4><span class="badge bg-secondary">{{description}}</span></h4>
+    </article>
+    <hr>
+    <h3><span class="badge bg-secondary">Types:</span></h3>
+    <ul class="list-group">
+        {{#each types}}
+        <li class="list-group-item">{{this}}</li>
+        {{/each}}
+    </ul>
+    <hr>
+    <h3><span class="badge bg-secondary">Syntax:</span></h3>
+    <ol class="list-group list-group-numbered">
+        {{#with syntax}}
+        <li class="list-group-item">Variables ({{#each variables}} {{this}} {{/each}})</li>
+        <li class="list-group-item">Functions ({{#each functions}} {{this}} {{/each}})</li>
+        <li class="list-group-item">Conditionals ({{#each conditionals}} {{this}} {{/each}})</li>
+        <li class="list-group-item">Loops ({{#each loops}} {{this}} {{/each}})</li>
+        <li class="list-group-item">Classes ({{#each classes}} {{this}} {{/each}})</li>
+        {{/with}}
+    </ol>
+    <hr>
+    <h3><span class="badge bg-secondary">Features:</span></h3>
+    <ul class="list-group">
+        {{#each features}}
+        <li class="list-group-item list-group-item-info">{{this}}</li>
+        {{/each}}
+    </ul>
+    <hr>
+    <h3><span class="badge bg-secondary">Libraries:</span></h3>
+    <ul class="list-group">
+        {{#each libraries}}
+        <li class="list-group-item list-group-item-info">{{this}}</li>
+        {{/each}}
+    </ul>
+    <hr>
+    <h3><span class="badge bg-secondary">Tools:</span></h3>
+    <ul class="list-group">
+        {{#each tools}}
+        <li class="list-group-item list-group-item-info">{{this}}</li>
+        {{/each}}
+    </ul>
+    <hr>
+    <h3><span class="badge bg-secondary">Community:</span></h3>
+    <ul class="list-group">
+        {{#each community}}
+        <li><button type="button" class="btn btn-success">{{name}} ({{type}})</button></li>
+        {{/each}}
+    </ul>
+</main>
+
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
