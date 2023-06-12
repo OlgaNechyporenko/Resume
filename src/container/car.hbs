@@ -1,0 +1,116 @@
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
+<div>
+    <h1><span class="badge bg-secondary">{{make}} {{model}}</span></h1>
+</div>
+<hr>
+<div>
+    <h2><span class="badge bg-secondary">Color: {{color}}, Year {{year}}</span></h2>
+</div>
+<hr>
+<div>
+    <section>
+        <h2><span class="badge bg-secondary">Features:</span></h2>
+        <ul class="list-group">
+            {{#with features.interior.seats}}
+            <h3><span class="badge bg-secondary">Seats:</span></h3>
+            <li class="list-group-item">Material: {{material}}</li>
+            <li class="list-group-item">Color: {{color}}</li>
+            <li class="list-group-item">{{#if heated}} Heated is avalable {{else}} Heated is not avalable {{/if}}</li>
+            <li class="list-group-item">{{#if ventilated}} Ventilated is avalable {{else}} Ventilated is not avalable
+                {{/if}}</li>
+            {{/with}}
+
+            {{#with features.interior.dashboard}}
+            <h3><span class="badge bg-secondary">Dashboard:</span></h3>
+            <li class="list-group-item">Material: {{material}}</li>
+            <li class="list-group-item">Color: {{color}}</li>
+            <li class="list-group-item">Display: type {{display.type}}, size {{display.size}}, resolution
+                {{display.resolution}}, {{#if display.touchscreen}} Touchscreen is avalable {{else}} Touchscreen is not
+                avalable
+                {{/if}}</li>
+            {{/with}}
+
+            {{#with features.interior.audio}}
+            <h3><span class="badge bg-secondary">Audio:</span></h3>
+            <li class="list-group-item">System: {{system}}</li>
+            <li class="list-group-item">Speakers: {{speakers}}</li>
+            <li class="list-group-item">{{#if subwoofer}} Subwoofer is avalable {{else}} Subwoofer is not avalable
+                {{/if}}</li>
+            <li class="list-group-item">{{#if bluetooth}} Bluetooth is avalable {{else}} Bluetooth is not avalable
+                {{/if}}</li>
+            <li class="list-group-item">{{#if USB}} USB is avalable {{else}} USB is not avalable
+                {{/if}}</li>
+            {{/with}}
+        </ul>
+    </section>
+    <section>
+        <ul class="list-group">
+            {{#with features.exterior.wheels}}
+            <h3><span class="badge bg-secondary">Wheels:</span></h3>
+            <li class="list-group-item">Size: {{size}}</li>
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Color: {{color}}</li>
+            {{/with}}
+            {{#with features.exterior.headlights}}
+            <h3><span class="badge bg-secondary">Headlights:</span></h3>
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Brightness: {{brightness}}</li>
+            <li class="list-group-item">{{#if automatic}} Automatic is avalable {{else}} Automatic is not avalable
+                {{/if}}</li>
+            {{/with}}
+            {{#with features.exterior.sunroof}}
+            <h3><span class="badge bg-secondary">Sunroof:</span></h3>
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Size: {{size}}</li>
+            <li class="list-group-item">{{#if automatic}} Automatic is avalable {{else}} Automatic is not avalable
+                {{/if}}</li>
+            {{/with}}
+            {{#with features.safety.airbags}}
+            <h3><span class="badge bg-secondary">Safety:</span></h3>
+            <li class="list-group-item">Airbags (front {{front}}, side {{side}}, knee {{knee}}, rear {{rear}})</li>
+            {{/with}}
+            {{#with features.safety.assistance}}
+            <li class="list-group-item">{{#if blind_spot_monitoring}} Blind spot monitoring{{/if}}</li>
+            <li class="list-group-item">{{#if rear_cross_traffic_alert}} Rear cross traffic alert{{/if}}</li>
+            <li class="list-group-item">{{#if lane_departure_warning}} Lane departure warning{{/if}}</li>
+            <li class="list-group-item">{{#if adaptive_cruise_control}} Adaptive cruise control{{/if}}</li>
+            <li class="list-group-item">{{#if collision_warning}} Collision warning{{/if}}</li>
+            {{/with}}
+        </ul>
+    </section>
+    <hr>
+    <section>
+        <h2><span class="badge bg-secondary">Engine:</span></h2>
+        <ul class="list-group">
+            {{#with engine}}
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Displacement: {{displacement}}</li>
+            <li class="list-group-item">Horsepower: {{horsepower}}</li>
+            <li class="list-group-item">Torque: {{torque}}</li>
+            <li class="list-group-item">Transmission: {{transmission.type}}, {{transmission.gears}} gears</li>
+            {{/with}}
+            {{#with fuel_economy}}
+            <li class="list-group-item">City: {{city}}</li>
+            <li class="list-group-item">Highway: {{highway}}</li>
+            <li class="list-group-item">Combined: {{combined}}</li>
+            {{/with}}
+        </ul>
+    </section>
+    <hr>
+    <section>
+        <h2><span class="badge bg-secondary">Price:</span></h2>
+        <ul class="list-group">
+            {{#with price}}
+            <li class="list-group-item">Base: {{base}}</li>
+            <li class="list-group-item">Destination: {{destination}}</li>
+            <li class="list-group-item">Options: navigation {{options.navigation}}, moonroof {{options.moonroof}},
+                premium paint {{options.premium_paint}}</li>
+            <li class="list-group-item">Torque: {{torque}}</li>
+            <h2><span class="badge bg-secondary">Total: {{total}}</span></h2>
+            {{/with}}
+
+</div>
