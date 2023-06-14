@@ -1,0 +1,99 @@
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
+<div>
+    <h1><span class="badge text-bg-success">{{name}} ({{price}}$)</span></h1>
+    <h2><span class="badge bg-secondary">({{category}})</span></h2>
+</div>
+<br>
+<div>
+    <h2><span class="badge rounded-pill text-bg-info">{{description}}</span></h2>
+</div>
+<hr>
+<main>
+    <div>
+        <section>
+            <h2><span class="badge text-bg-primary">Features</span></h2>
+            <br>
+            <ul class="list-group">
+                {{#with features.processor}}
+                <h3><span class="badge bg-secondary">Processor:</span></h3>
+                <li class="list-group-item"><b>Brand:</b> {{brand}}</li>
+                <li class="list-group-item"><b>Model:</b> {{model}}</li>
+                <li class="list-group-item"><b>Speed:</b> {{speed}}</li>
+                <li class="list-group-item"><b>Cores:</b> {{cores}}</li>
+                <li class="list-group-item"><b>Cache:</b> {{cache}}</li>
+                {{/with}}
+
+                {{#with features.memory}}
+                <h3><span class="badge bg-secondary">Memory:</span></h3>
+                <li class="list-group-item"><b>Type:</b> {{type}}</li>
+                <li class="list-group-item"><b>Size:</b> {{size}}</li>
+                <li class="list-group-item"><b>Speed:</b> {{speed}}</li>
+                {{/with}}
+
+                {{#with features.storage}}
+                <h3><span class="badge bg-secondary">Storage:</span></h3>
+                <li class="list-group-item"><b>Type:</b> {{type}}</li>
+                <li class="list-group-item"><b>Size:</b> {{size}}</li>
+                {{/with}}
+
+                {{#with features.display}}
+                <h3><span class="badge bg-secondary">Display:</span></h3>
+                <li class="list-group-item"><b>Size:</b> {{size}}</li>
+                <li class="list-group-item"><b>Resolution:</b> {{resolution}}</li>
+                <li class="list-group-item"><b>Technology:</b> {{technology}}</li>
+                <li class="list-group-item"><b>Color_space:</b> {{color_space}}</li>
+                <li class="list-group-item"><b>Brightness:</b> {{brightness}}</li>
+                <li class="list-group-item"><b>Refresh_rate:</b> {{refresh_rate}}</li>
+                {{/with}}
+
+                {{#with features.graphics}}
+                <h3><span class="badge bg-secondary">Graphics:</span></h3>
+                <li class="list-group-item"><b>Brand:</b> {{brand}}</li>
+                <li class="list-group-item"><b>Model:</b> {{model}}</li>
+                <li class="list-group-item"><b>Memory:</b> {{memory}}</li>
+                {{/with}}
+
+                <h3><span class="badge bg-secondary">Ports:</span></h3>
+                {{#each features.ports}}
+                <li class="list-group-item"><b>Type:</b> {{type}}, {{count}} {{#if features}} ({{#each features}}
+                    {{this}}, {{/each}}) {{/if}}
+                </li>
+                {{/each}}
+
+                {{#with features.battery}}
+                <h3><span class="badge bg-secondary">Battery:</span></h3>
+                <li class="list-group-item"><b>Type:</b> {{type}}</li>
+                <li class="list-group-item"><b>Capacity:</b> {{capacity}}</li>
+                <li class="list-group-item"><b>Life:</b> {{life}}</li>
+                {{/with}}
+
+                {{#with features}}
+                <h3><span class="badge bg-secondary">Weight:</span></h3>
+                <li class="list-group-item"><b>Weight:</b> {{weight}}</li>
+                {{/with}}
+
+                {{#with features.dimensions}}
+                <h3><span class="badge bg-secondary">Dimensions:</span></h3>
+                <li class="list-group-item"><b>Height:</b> {{height}}</li>
+                <li class="list-group-item"><b>Width:</b> {{width}}</li>
+                <li class="list-group-item"><b>Depth:</b> {{depth}}</li>
+                {{/with}}
+
+                {{#with features}}
+                <h3><span class="badge bg-secondary">Operating system:</span></h3>
+                <li class="list-group-item"><b>Operating system:</b> {{operating_system}}</li>
+                {{/with}}
+
+                <h3><span class="badge bg-secondary">Accessories:</span></h3>
+                {{#each features.accessories}}
+                <li class="list-group-item"><b>Name:</b> {{name}}, {{price}} USD
+                </li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
+</main>
