@@ -1,0 +1,77 @@
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
+<div>
+    <h1><span class="badge text-bg-primary">{{name}}</span></h1>
+</div>
+<main>
+    <div>
+        {{#each users}}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h2>{{name}} (id: {{id}})</h2>
+            </li>
+            <li class="list-group-item"><b>Gender:</b> {{gender}}</li>
+            <li class="list-group-item"><b>Age:</b> {{age}}</li>
+            <li class="list-group-item"><b>Friends:</b>
+                <ul class="list-group">
+                    {{#each friends}}
+                    <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                    <li class="list-group-item"><b>Gender:</b> {{gender}}</li>
+                    <li class="list-group-item"><b>Age:</b> {{age}}</li>
+                    <li class="list-group-item"><b>Mutual friends:</b>
+                        <ul class="list-group">
+                            {{#each mutual_friends}}
+                            <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                            <li class="list-group-item"><b>Gender:</b> {{gender}}</li>
+                            <li class="list-group-item"><b>Age:</b> {{age}}</li>
+                            <li class="list-group-item"><b>Mutual friends:</b>
+                                {{#each mutual_friends}} {{name}} (id: {{id}}) {{gender}}, age: {{age}} {{/each}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <li class="list-group-item">{{#if groups}}<b>Groups:</b>
+                        <ul class="list-group">
+                            {{#each groups}}
+                            <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                            <li class="list-group-item"><b>Description:</b> {{description}}</li>
+                            <li class="list-group-item"><b>Members:</b>
+                                <ul class="list-group">
+                                    {{#each members}}
+                                    <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                                    <li class="list-group-item"><b>Gender:</b> {{gender}}</li>
+                                    <li class="list-group-item"><b>Age:</b> {{age}}</li>
+                                    {{/each}}
+                                </ul>
+                            </li>
+                            {{/each}}
+                        </ul> {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li class="list-group-item">{{#if groups}}<b>Groups:</b>
+                <ul class="list-group">
+                    {{#each groups}}
+                    <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                    <li class="list-group-item"><b>Description:</b> {{description}}</li>
+                    <li class="list-group-item"><b>Members:</b>
+                        <ul class="list-group">
+                            {{#each members}}
+                            <li class="list-group-item"><b>{{name}} (id: {{id}})</b></li>
+                            <li class="list-group-item"><b>Gender:</b> {{gender}}</li>
+                            <li class="list-group-item"><b>Age:</b> {{age}}</li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    {{/each}}
+                </ul> {{/if}}
+            </li>
+        </ul>
+
+        {{/each}}
+    </div>
+</main>
