@@ -1,0 +1,63 @@
+<main class="m-3">
+    <div class="row">
+        <h1 class="mb-5 mt-5">{{header}}</h1>
+        <div class="col-8">
+            {{#with contacts_data}}
+            <section class="mb-3">
+                <h2 class="mb-3">{{title}}</h2>
+                {{#each buttons}}
+                {{#if isPrimary}}
+                <button type="button" class="btn btn-warning text-light">{{text}}</button>
+                {{/if}}
+                {{#if isOutline}}
+                <button type="button" class="btn btn-outline-warning">{{text}}</button>
+                {{/if}}
+                {{/each}}
+            </section>
+            {{#with form.input}}
+            <section class="row">
+                <div class="col-6">
+                    {{#with surname}}
+                    <label class="form-lable">{{label}}</label>
+                    <input class="form-control text-secondary" value="{{placeholder}}">
+                    <div class="form-text">{{caption}}</div>
+                    {{/with}}
+                </div>
+                <div class="col-6">
+                    {{#with name}}
+                    <label class="form-lable">{{label}}</label>
+                    <input class="form-control text-secondary" value="{{placeholder}}">
+                    <div class="form-text">{{caption}}</div>
+                    {{/with}}
+                </div>
+                <div class="col-6">
+                    {{#with phone}}
+                    <label class="form-lable">{{label}}</label>
+                    <input class="form-control text-secondary" value="{{placeholder}}">
+                    <div class="form-text">{{caption}}</div>
+                    {{/with}}
+                </div>
+                <div class="col-6">
+                    {{#with email}}
+                    <label class="form-lable">{{label}}</label>
+                    <input class="form-control text-secondary" value="{{placeholder}}">
+                    <div class="form-text">{{caption}}</div>
+                    {{/with}}
+                </div>
+            </section>
+            {{/with}}
+            {{/with}}
+
+        </div>
+        <aside class="col-4">
+            <div class="card">
+                <div class="card-body">
+
+
+                </div>
+
+            </div>
+
+        </aside>
+    </div>
+</main>
