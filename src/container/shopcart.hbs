@@ -1,0 +1,63 @@
+<style>
+    hr {
+        border: none;
+        /* Прибираємо кордон */
+        background-color: rgb(0, 0, 0);
+        /* Колір лінії */
+        color: rgb(0, 0, 0);
+        /* Колір лінії для IE6-7 */
+        height: 2px;
+        /* Товщина лінії */
+    }
+</style>
+
+
+<main class="m-3">
+    <div class="row">
+        <section class="mt-4 mb-4">
+            {{#with header}}
+            <h1 class="mb-4">{{title}}</h1>
+            {{#with button}}
+            <a href="{{link}}" class="btn btn-outline-secondary">{{text}}</a>
+            {{/with}}
+            {{/with}}
+        </section>
+        <hr class="mb-5 mt-5">
+        <section class="mt-4">
+            {{#each goodsBlock}}
+            {{>cartGoodsItem}}
+            {{/each}}
+        </section>
+        <hr class="mb-5 mt-5">
+        <section class="mt-4">
+            {{#with total}}
+            <h2>{{title}}</h2>
+            <p class="fs-1 fw-medium">{{amount}}</p>
+            <p class="mb-4">{{delivery}}</p>
+            {{#each buttons}}
+            <a href="{{link}}"
+                class=" mb-3 btn {{#if isSuccess}} btn-success {{/if}} {{#if isOutline}} btn-outline-success {{/if}}">
+                {{text}}
+            </a>
+            <br>
+            {{/each}}
+            {{/with}}
+        </section>
+        <hr class="mb-5 mt-5">
+        <section class="row mt-3">
+            {{#with goodsOtherBlock}}
+            <h2 class="text-center mb-3">{{title}}</h2>
+            {{#each cards}}
+            {{>goodsItem}}
+            {{/each}}
+            {{/with}}
+        </section>
+        <hr class="mb-5 mt-5">
+        <section>
+            {{#with subscribe}}
+            {{>subscribe}}
+            {{/with}}
+        </section>
+        <hr class="mb-5 mt-5">
+    </div>
+</main>
