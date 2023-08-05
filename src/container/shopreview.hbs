@@ -1,0 +1,109 @@
+<style>
+    hr {
+        border: none;
+        /* Прибираємо кордон */
+        background-color: rgb(0, 0, 0);
+        /* Колір лінії */
+        color: rgb(0, 0, 0);
+        /* Колір лінії для IE6-7 */
+        height: 2px;
+        /* Товщина лінії */
+    }
+</style>
+
+<main class="m-3">
+    <div class="row">
+        {{#with formBlock}}
+        <div class="col-8">
+            <h1 class="mt-5 mb-3">{{header}}</h1>
+            {{#with rating}}
+            <p>{{title}}: {{value}}</p>
+            {{/with}}
+            {{#with actionBlock}}
+            <ul class="nav nav-tabs nav-fill mt-3 mb-5">
+                {{#each tabs}}
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{#if isActive}} active fw-bold {{/if}} fw-medium">{{text}}</a>
+                </li>
+                {{/each}}
+            </ul>
+            <hr class="mb-5 mt-5">
+            <section class="card">
+                {{#with report}}
+                <div class="card-body">
+                    <p class="fw-semibold">{{title}}</p>
+                    {{#with button}}
+                    <a href="{{link}}" class="btn btn-secondary">{{text}}</a>
+                    {{/with}}
+                </div>
+                {{/with}}
+            </section>
+            {{/with}}
+            <hr class="mb-5 mt-5">
+            <section>
+                {{#with feedbackBlock}}
+                <h2 class="mb-5">{{title}}</h2>
+                {{#each buttons}}
+                <a href="{{link}}"
+                    class="btn {{#if isWarning}} btn-warning text-light{{/if}} {{#if isSuccess}} btn-success {{/if}} {{#if isDanger}} btn-danger {{/if}}">{{text}}</a>
+                {{/each}}
+                {{/with}}
+            </section>
+        </div>
+        <aside class="col-4 mt-5">
+            {{#with goodsInfo}}
+            <section class="card mb-3">
+                <div class="card-body">
+                    <img src="{{photo}}" class="rounded">
+                    <h5 class="mt-3">{{name}}</h5>
+                </div>
+            </section>
+            <section class="card mb-3">
+                <div class="card-body">
+                    <h5>{{price}}</h5>
+                    {{#if inMarket}}
+                    <p>Є в наявності</p>
+                    {{else}}
+                    <p>Нема в наявності</p>
+                    {{/if}}
+                    {{#each buttons}}
+                    <a href="{{link}}"
+                        class="btn {{#if isPrimary}} btn-primary {{/if}} {{#if isSecondary}} btn-secondary {{/if}} mb-2">{{text}}</a>
+                    <br>
+                    {{/each}}
+                </div>
+            </section>
+            <section class="card">
+                {{#with seller}}
+                <div class="card-body">
+                    <p class="mt-3">{{title}}: <b>{{value}}</b></p>
+                </div>
+                {{/with}}
+            </section>
+            {{/with}}
+        </aside>
+        {{/with}}
+        <section class="col-12">
+            <hr class="mt-5 mb-5">
+            {{#each reviewList}}
+            {{>reviewItem}}
+            {{/each}}
+        </section>
+        <section class="col-12">
+            {{#with service}}
+            <div class="card text-bg-success">
+                <div class="card-body text-center">
+                    <h2 class="card-title">{{title}}</h2>
+                    <p>{{description}}</p>
+                    {{#each buttons}}
+                    <a href="{{link}}" class="btn btn-primary">{{text}}</a>
+                    {{/each}}
+                </div>
+            </div>
+            {{/with}}
+        </section>
+        <hr class="mt-5">
+
+    </div>
+
+</main>
