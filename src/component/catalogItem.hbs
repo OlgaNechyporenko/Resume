@@ -1,0 +1,21 @@
+<div class="card" style="height: 38rem;">
+    <img class="card-img-top" src="{{img}}">
+    <div class="card-body">
+        {{>badge}}
+        <h5 class="card-title mt-3 mb-3">{{name}}</h5>
+        {{#with review}}
+        <p>{{amount}} {{text}}</p>
+        {{/with}}
+        <h5>{{price}}</h5>
+        <p>{{delivery}}</p>
+        {{#each buttons}}
+        <a href="{{link}}"
+            class="btn {{#if isPrimary}} btn-primary{{/if}} {{#if isSecondary}} btn-secondary {{/if}} mb-3">{{text}}</a>
+        {{/each}}
+        <ul>
+            {{#each characteristics}}
+            <li>{{title}}: {{value}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
