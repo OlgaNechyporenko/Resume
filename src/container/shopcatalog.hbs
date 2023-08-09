@@ -1,0 +1,102 @@
+<main class="row m-3">
+    <nav class="mb-5 mt-5">
+        <ol class="breadcrumb">
+            {{#each breadcrumb}}
+            <li class="breadcrumb-item">
+                {{#if url}}
+                <a href="{{url}}">{{name}}</a>
+                {{else}}
+                <a>{{name}}</a>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ol>
+    </nav>
+
+    <h1 class="mb-5">{{header}}</h1>
+
+    {{#each sortBlock}}
+    <section class="col-3">
+        <select class="form-select">
+            <option selected>{{placeholder}}</option>
+            {{#each options}}
+            <option value="{{value}}">{{text}}</option>
+            {{/each}}
+        </select>
+    </section>
+    {{/each}}
+
+    <section class="col-4 mt-5">
+        {{#with filterBlock}}
+        <div class="card">
+            <div class="card-body">
+                {{#with sellers}}
+                {{>formLabel}}
+                {{#each list}}
+                {{>formCheck}}
+                {{/each}}
+                {{/with}}
+                <hr>
+                <form>
+                    {{#with brands}}
+                    {{>formLabel}}
+                    <input class="form-control mb-3" placeholder="{{input.placeholder}}">
+                    {{#each options}}
+                    {{>formCheck}}
+                    {{/each}}
+                    {{/with}}
+                </form>
+                <hr>
+                <form>
+                    {{#with price}}
+                    {{>formLabel}}
+                    <input class="form-control mb-3" value="{{range.from}}">
+                    <input class="form-control mb-3" value="{{range.to}}">
+                    <a class="btn btn-outline-secondary ps-4 pe-4" href="{{button.link}}">{{button.text}}</a>
+                    {{/with}}
+                </form>
+                <hr>
+                <section>
+                    {{#each filterList}}
+                    {{>formLabel}}
+                    {{#each options}}
+                    {{>formCheck}}
+                    {{/each}}
+                    {{#unless @last}}
+                    <hr>{{/unless}}
+                    {{/each}}
+                </section>
+            </div>
+        </div>
+        {{/with}}
+    </section>
+
+    <section class="col-8 mt-5">
+        <div class="row gx-2 gy-3">
+            {{#each goodsList}}
+            <div class="col-6">
+                {{>catalogItem}}
+            </div>
+            {{/each}}
+        </div>
+    </section>
+
+    <section class="col-12 mb-5">
+        {{#with service}}
+        <div class="card mt-5">
+            <div class="card-body text-bg-success">
+                <h2 class="card-title text-center">{{title}}</h2>
+                <p class="text-center">{{description}}</p>
+                <div class="text-center">
+                    {{#each buttons}}
+                    {{>button}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/with}}
+    </section>
+    <hr>
+
+
+</main>
