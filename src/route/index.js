@@ -39,7 +39,79 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+    page: {
+      title: 'Main Page',
+    },
+
+    name: {
+      firstname: 'Olga',
+      lastname: 'Nechyporenko',
+    },
+
+    title: 'Resume project',
+
+    main: {
+      title: 'Список сторінок',
+
+      description:
+        'Резюме, що містить в своєму складі портфоліо.',
+
+      buttons: [
+        {
+          text: 'Резюме',
+          link: 'http://localhost:3000/summary',
+          isPrimary: true,
+        },
+        {
+          text: 'Навички',
+          link: 'http://localhost:3000/skills',
+          isPrimary: true,
+        },
+        {
+          text: 'Освіта',
+          link: 'http://localhost:3000/education',
+          isPrimary: true,
+        },
+        {
+          text: 'Досвід роботи',
+          link: 'http://localhost:3000/work',
+          isPrimary: true,
+        },
+        {
+          text: 'Portfolio | Shophome',
+          link: 'http://localhost:3000/shophome',
+          isSuccess: true,
+        },
+        {
+          text: 'Portfolio | Shoporder',
+          link: 'http://localhost:3000/shoporder',
+          isSuccess: true,
+        },
+        {
+          text: 'Portfolio | Shopcart',
+          link: 'http://localhost:3000/shopcart',
+          isSuccess: true,
+        },
+        {
+          text: 'Portfolio | Shopprofile',
+          link: 'http://localhost:3000/shopprofile',
+          isSuccess: true,
+        },
+        {
+          text: 'Portfolio | Shopreview',
+          link: 'http://localhost:3000/shopreview',
+          isSuccess: true,
+        },
+        {
+          text: 'Portfolio | Shopcatalog',
+          link: 'http://localhost:3000/shopcatalog',
+          isSuccess: true,
+        },
+      ],
+    },
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -1151,6 +1223,17 @@ router.get('/bootstrapIcon', function (req, res) {
   //                  ↑↑ сюди вводимо JSON дані
 })
 
+//           ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/bootstrapCSS', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('bootstrapCSS', {
+    layout: 'bootstrap',
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+
 router.get('/task21', function (req, res) {
   // res.render генерує нам HTML сторінку
 
@@ -1537,6 +1620,9 @@ router.get('/shophome', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shophome', {
     layout: 'shop',
+    page: {
+      title: 'Shophome',
+    },
     navigation: {
       links: [
         {
@@ -1823,6 +1909,9 @@ router.get('/shoporder', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shoporder', {
     layout: 'shop',
+    page: {
+      title: 'Shoporder',
+    },
     navigation: {
       links: [
         {
@@ -2188,6 +2277,9 @@ router.get('/shopcart', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcart', {
     layout: 'shop',
+    page: {
+      title: 'Shopcart',
+    },
     navigation: {
       links: [
         {
@@ -2436,6 +2528,9 @@ router.get('/shopprofile', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopprofile', {
     layout: 'shop',
+    page: {
+      title: 'Shopprofile',
+    },
     navigation: {
       links: [
         {
@@ -2730,6 +2825,9 @@ router.get('/shopreview', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopreview', {
     layout: 'shop',
+    page: {
+      title: 'Shopreview',
+    },
     navigation: {
       links: [
         {
@@ -3015,6 +3113,9 @@ router.get('/shopcatalog', function (req, res) {
   //            ↙ cюди вводимо назву файлу з сontainer
   res.render('shopcatalog', {
     layout: 'shop',
+    page: {
+      title: 'Shopcatalog',
+    },
     navigation: {
       links: [
         {
