@@ -61,52 +61,52 @@ router.get('/', function (req, res) {
       buttons: [
         {
           text: 'Резюме',
-          link: 'http://summary',
+          link: '/summary',
           isPrimary: true,
         },
         {
           text: 'Навички',
-          link: 'http://skills',
+          link: '/skills',
           isPrimary: true,
         },
         {
           text: 'Освіта',
-          link: 'http://education',
+          link: '/education',
           isPrimary: true,
         },
         {
           text: 'Досвід роботи',
-          link: 'http://work',
+          link: '/work',
           isPrimary: true,
         },
         {
           text: 'Portfolio | Shophome',
-          link: 'http://shophome',
+          link: '/shophome',
           isSuccess: true,
         },
         {
           text: 'Portfolio | Shoporder',
-          link: 'http://shoporder',
+          link: '/shoporder',
           isSuccess: true,
         },
         {
           text: 'Portfolio | Shopcart',
-          link: 'http://shopcart',
+          link: '/shopcart',
           isSuccess: true,
         },
         {
           text: 'Portfolio | Shopprofile',
-          link: 'http://shopprofile',
+          link: '/shopprofile',
           isSuccess: true,
         },
         {
           text: 'Portfolio | Shopreview',
-          link: 'http://shopreview',
+          link: '/shopreview',
           isSuccess: true,
         },
         {
           text: 'Portfolio | Shopcatalog',
-          link: 'http://shopcatalog',
+          link: '/shopcatalog',
           isSuccess: true,
         },
       ],
